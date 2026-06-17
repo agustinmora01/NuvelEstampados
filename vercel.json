@@ -1,15 +1,6 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "web-nuvelestampados.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/web-nuvelestampados.html"
-    }
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/", "destination": "/web-nuvelestampados.html" }
   ]
 }
