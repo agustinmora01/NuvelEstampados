@@ -1,0 +1,1164 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuvel Estampados — Personalizados a tu medida</title>
+  <meta name="description" content="Remeras, camperas, buzos, gorras y tazas con estampados personalizados. Envíos a todo el país.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root {
+      --bg:      #040101;
+      --surf:    rgba(255,255,255,.035);
+      --surf2:   rgba(255,255,255,.06);
+      --border:  rgba(255,255,255,.07);
+      --border2: rgba(255,255,255,.12);
+      --white:   #f0f0f2;
+      --grey:    #555;
+      --grey2:   #888;
+      --red:     #610304;
+      --lgray:   #D8D7D8;
+      --purple:  #610304;
+      --holo:    linear-gradient(135deg, #610304 0%, #D8D7D8 50%, #610304 100%);
+      --holo-s:  linear-gradient(90deg, #610304, #D8D7D8, #610304, #D8D7D8, #610304);
+      --ig-grad: linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);
+      --ease:    cubic-bezier(.165,.84,.44,1);
+      --bounce:  cubic-bezier(.175,.885,.32,1.275);
+      --display: 'Anton', sans-serif;
+      --body:    'Outfit', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    a, button, [role=button], input, label, select, textarea, [tabindex] { cursor: none !important; }
+    html { scroll-behavior: smooth; }
+
+    html { background: var(--bg); }
+
+    body {
+      background: transparent;
+      color: var(--white);
+      font-family: var(--body);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    ::-webkit-scrollbar { width: 2px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--red); }
+
+    /* ── COLOR CYCLE ── */
+    @keyframes color-cycle-anim {
+      0%, 100% { color: #D8D7D8; -webkit-text-fill-color: #D8D7D8; }
+      50%       { color: #610304; -webkit-text-fill-color: #610304; }
+    }
+    .color-cycle {
+      background: none !important;
+      -webkit-background-clip: unset !important;
+      background-clip: unset !important;
+      -webkit-text-fill-color: #D8D7D8;
+      animation: color-cycle-anim 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    /* ── HOLO TEXT ── */
+    .holo {
+      background: var(--holo-s);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: holo-pan 5s linear infinite;
+    }
+    @keyframes holo-pan {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    /* ── ORBS ── */
+    .orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .orb  { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .1; }
+    .orb-1 {
+      width: 600px; height: 600px; top: -200px; left: -100px;
+      background: radial-gradient(circle, #610304, transparent 70%);
+      animation: orb-drift-1 20s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 500px; height: 500px; top: 20%; right: -150px;
+      background: radial-gradient(circle, #8a0406, transparent 70%);
+      animation: orb-drift-2 25s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 400px; height: 400px; bottom: 10%; left: 30%;
+      background: radial-gradient(circle, #D8D7D8, transparent 70%);
+      opacity: .025;
+      animation: orb-drift-3 18s ease-in-out infinite;
+    }
+    .orb-4 {
+      width: 350px; height: 350px; top: 50%; left: 60%;
+      background: radial-gradient(circle, #610304, transparent 70%);
+      opacity: .06;
+      animation: orb-drift-2 22s ease-in-out infinite reverse;
+    }
+    @keyframes orb-drift-1 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%      { transform: translate(60px,80px) scale(1.1); }
+    }
+    @keyframes orb-drift-2 {
+      0%,100% { transform: translate(0,0) scale(1.1); }
+      50%      { transform: translate(-80px,60px) scale(1); }
+    }
+    @keyframes orb-drift-3 {
+      0%,100% { transform: translate(0,0) scale(1); }
+      50%      { transform: translate(40px,-60px) scale(1.15); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(4,1,1,.75);
+      backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-size: .9rem; letter-spacing: .22em;
+      text-decoration: none;
+      background: var(--holo-s); background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: holo-pan 5s linear infinite;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: var(--body); font-weight: 500; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: var(--grey2); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links .nav-cta {
+      padding: 7px 16px; border: 1px solid var(--border2);
+      border-radius: 4px; color: var(--white); transition: all .2s;
+    }
+    .nav-links .nav-cta:hover { border-color: var(--red); color: var(--lgray); }
+
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger span { display:block; width:22px; height:1px; background:var(--white); transition:all .3s; }
+
+    .mob-nav {
+      position: fixed; top: 52px; left:0; right:0; z-index:199;
+      background: rgba(4,1,1,.98);
+      border-bottom:1px solid var(--border);
+      display:flex; flex-direction:column; padding:12px;
+      transform: translateY(-110%); transition: transform .3s var(--ease);
+    }
+    .mob-nav.open { transform: translateY(0); }
+    .mob-nav a {
+      font-family: var(--body); font-weight: 500;
+      font-size:.75rem; text-transform:uppercase; letter-spacing:.1em;
+      color:var(--white); text-decoration:none;
+      padding:11px 14px; border-radius:4px; transition:all .2s;
+    }
+    .mob-nav a:hover { color:var(--lgray); background:var(--surf); }
+
+    /* ── HERO SHADER ── */
+    .hero-shader {
+      position: relative;
+      height: 100vh;
+      background: #040101;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #shader-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 1;
+      opacity: 0.65;
+    }
+    .hero-s-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      max-width: 900px;
+    }
+    .hero-s-eyebrow {
+      font-family: var(--body);
+      font-size: .6rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .35em;
+      color: rgba(216,215,216,.35);
+      margin-bottom: 1.8rem;
+    }
+    .hero-s-title {
+      font-family: var(--display);
+      font-size: clamp(3rem, 11vw, 8.5rem);
+      letter-spacing: .02em; line-height: 1.05;
+      margin-bottom: 1.6rem;
+      color: #D8D7D8;
+      text-transform: uppercase;
+    }
+    .hero-s-desc {
+      font-family: var(--body);
+      font-size: clamp(.85rem, 1.4vw, 1.05rem);
+      color: rgba(216,215,216,.5);
+      line-height: 1.8; max-width: 480px;
+      margin: 0 auto 2.8rem; font-weight: 300;
+    }
+    .hero-s-actions {
+      display: flex; gap: 1rem;
+      justify-content: center; flex-wrap: wrap;
+      margin-bottom: 2.8rem;
+    }
+    .btn-red {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 6px;
+      background: #610304; color: #D8D7D8;
+      font-family: var(--body); font-weight: 600; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .14em;
+      text-decoration: none; border: 1px solid #610304;
+      transition: all .3s var(--ease);
+    }
+    .btn-red:hover {
+      background: #7d0405; border-color: #7d0405;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(97,3,4,.45);
+    }
+    .btn-s-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 6px;
+      background: transparent; color: rgba(216,215,216,.7);
+      font-family: var(--body); font-weight: 500; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .14em;
+      text-decoration: none; border: 1px solid rgba(216,215,216,.2);
+      transition: all .25s var(--ease);
+    }
+    .btn-s-outline:hover {
+      border-color: rgba(216,215,216,.5); color: #D8D7D8;
+      background: rgba(216,215,216,.05); transform: translateY(-2px);
+    }
+    .hero-s-tags {
+      display: flex; gap: 8px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .hero-s-tag {
+      padding: 5px 14px; border-radius: 100px;
+      border: 1px solid rgba(216,215,216,.12);
+      font-family: var(--body); font-size: .55rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .14em;
+      color: rgba(216,215,216,.35);
+    }
+    .hero-s-scroll {
+      position: absolute; bottom: 2.2rem; left: 50%;
+      transform: translateX(-50%); z-index: 10;
+      color: rgba(216,215,216,.25); text-decoration: none;
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      font-family: var(--body); font-size: .5rem;
+      text-transform: uppercase; letter-spacing: .25em;
+      transition: color .2s;
+      animation: bounce-scroll 2.2s ease-in-out infinite;
+    }
+    .hero-s-scroll:hover { color: rgba(216,215,216,.6); }
+    @keyframes bounce-scroll {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── BUTTONS ── */
+    .btn-holo {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 6px;
+      font-family: var(--body); font-weight: 600; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .14em;
+      text-decoration: none; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #610304, #8a0406);
+      color: #D8D7D8;
+      transition: all .3s var(--ease);
+    }
+    .btn-holo::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #8a0406, #610304);
+      opacity: 0; transition: opacity .3s;
+    }
+    .btn-holo:hover::before { opacity: 1; }
+    .btn-holo:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(97,3,4,.35); }
+    .btn-holo span { position: relative; z-index: 1; }
+
+    .btn-o {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 6px;
+      background: transparent; color: var(--grey2);
+      font-family: var(--body); font-weight: 500; font-size: .72rem;
+      text-transform: uppercase; letter-spacing: .14em;
+      text-decoration: none; border: 1px solid var(--border2);
+      transition: all .25s var(--ease);
+    }
+    .btn-o:hover { border-color: var(--red); color: var(--lgray); transform: translateY(-2px); }
+
+    /* ── SECTION BASE ── */
+    .sec { padding: 100px 2.5rem; border-bottom: 1px solid var(--border); position: relative; }
+    .container { max-width: 1320px; margin: 0 auto; }
+
+    .sec-num {
+      font-family: var(--body); font-weight: 600; font-size: .6rem;
+      text-transform:uppercase; letter-spacing:.22em; color:var(--grey);
+      margin-bottom:12px; display: flex; align-items: center; gap: 10px;
+    }
+    .sec-num::before {
+      content: ''; display: block; width: 20px; height: 1px;
+      background: linear-gradient(90deg, var(--red), var(--lgray));
+    }
+    .sec-title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      letter-spacing: .02em; line-height: .95; margin-bottom: 20px;
+    }
+    .sec-sub {
+      font-family: var(--body);
+      font-size: 1rem; color: var(--grey2); line-height: 1.8;
+      max-width: 520px; font-weight: 300;
+    }
+
+    /* ── SOBRE ── */
+    .sobre { background: rgba(255,255,255,.015); }
+    .sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; }
+    .sobre-text .sec-sub { max-width:100%; margin-bottom:32px; }
+
+    .pills { display:flex; flex-wrap:wrap; gap:8px; }
+    .pill {
+      padding: 6px 16px; border-radius: 100px;
+      font-family: var(--body); font-weight: 500; font-size: .6rem;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--grey2); border: 1px solid var(--border2); transition: all .2s;
+    }
+    .pill:hover { border-color: var(--red); color: var(--lgray); }
+
+    .sobre-photos {
+      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:8px;
+    }
+    .sphoto { overflow:hidden; border-radius:10px; background:var(--surf); }
+    .sphoto:first-child { grid-column:1/-1; aspect-ratio:16/7; }
+    .sphoto:not(:first-child) { aspect-ratio:1; }
+    .sphoto img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
+    .sphoto:hover img { transform:scale(1.04); }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--bg); }
+    .products-header {
+      display:flex; justify-content:space-between; align-items:flex-end;
+      margin-bottom:56px; flex-wrap:wrap; gap:20px;
+      padding-bottom:28px; border-bottom:1px solid var(--border);
+    }
+    .products-list { display:flex; flex-direction:column; }
+    .prod-item {
+      display:grid; grid-template-columns:72px 1fr;
+      align-items:center; gap:24px;
+      padding:24px 0; border-bottom:1px solid var(--border);
+      transition:all .3s var(--ease); cursor: none;
+    }
+    .prod-item:hover { padding-left:16px; }
+    .prod-item:hover .prod-name { color: var(--lgray); }
+    .prod-item:hover .prod-num  { color: var(--red); }
+    .prod-num {
+      font-family: var(--body); font-weight: 600; font-size: .6rem;
+      color: var(--grey); text-transform: uppercase; letter-spacing: .16em; transition: color .3s;
+    }
+    .prod-name {
+      font-family: var(--display); font-size: 1.7rem; letter-spacing: .02em; transition: color .3s;
+    }
+    .prod-desc { font-family: var(--body); font-size: .84rem; color: var(--grey2); margin-top: 3px; font-weight: 300; }
+
+    .products-cta { margin-top:48px; display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+    .products-note {
+      font-family: var(--body); font-weight: 500; font-size: .62rem;
+      color: var(--grey); text-transform: uppercase; letter-spacing: .14em;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: rgba(255,255,255,.015); }
+    .gallery-head {
+      display:flex; justify-content:space-between; align-items:flex-end;
+      margin-bottom:36px; flex-wrap:wrap; gap:16px;
+    }
+    .gallery-grid {
+      display:grid; grid-template-columns:1.6fr 1fr; grid-template-rows:290px 290px;
+      gap:8px; margin-bottom:36px; border-radius:12px; overflow:hidden;
+    }
+    .g-item { overflow:hidden; background:var(--surf); position:relative; }
+    .g-item:first-child { grid-row:1/3; }
+    .g-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s var(--ease); }
+    .g-item:hover img { transform:scale(1.06); }
+    .g-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(4,1,1,.85) 0%, transparent 50%);
+      opacity:0; transition:opacity .3s; display:flex; align-items:flex-end; padding:18px;
+    }
+    .g-item:hover .g-overlay { opacity:1; }
+    .g-cap {
+      font-family: var(--body); font-weight: 600; font-size: .62rem;
+      text-transform: uppercase; letter-spacing: .16em;
+      background: var(--holo-s); background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: holo-pan 4s linear infinite;
+    }
+    .gallery-more { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+    .gallery-note {
+      font-family: var(--body); font-weight: 500; font-size: .62rem;
+      color: var(--grey); text-transform: uppercase; letter-spacing: .14em;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--bg); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; }
+    .contact-big {
+      font-family: var(--display);
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      letter-spacing: .02em; line-height: 1.08; margin-bottom: 36px;
+    }
+    .contact-sub { font-family: var(--body); font-size: 1rem; color: var(--grey2); line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
+    .c-link {
+      display:flex; align-items:center; gap:16px; padding:16px 18px;
+      background: var(--surf); border:1px solid var(--border2); border-radius:10px;
+      text-decoration:none; color:var(--white); font-family: var(--body);
+      transition:all .25s var(--ease);
+    }
+    .c-link:hover { border-color: var(--red); background: rgba(97,3,4,.08); transform: translateX(6px); }
+    .c-icon { width:38px; height:38px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .c-icon.ig { background: var(--ig-grad); }
+    .c-label strong { display:block; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.12em; }
+    .c-label span   { font-size:.65rem; color:var(--grey2); font-weight:400; }
+    .contact-card {
+      background: rgba(255,255,255,.03); backdrop-filter: blur(20px);
+      border: 1px solid var(--border2); border-radius: 20px; padding: 44px;
+      position: relative; overflow: hidden;
+    }
+    .contact-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: var(--holo-s); background-size: 300% 100%; animation: holo-pan 4s linear infinite;
+    }
+    .contact-card::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at top left, rgba(97,3,4,.08) 0%, transparent 60%);
+    }
+    .cc-inner { position:relative; z-index:1; }
+    .cc-label {
+      font-family: var(--body); font-weight: 600; font-size: .6rem;
+      text-transform:uppercase; letter-spacing:.2em; margin-bottom:20px;
+      background: var(--holo-s); background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: holo-pan 5s linear infinite;
+    }
+    .cc-title { font-family: var(--display); font-size: 2.4rem; letter-spacing: .02em; line-height: .95; margin-bottom: 14px; }
+    .cc-body  { font-family: var(--body); font-size:.9rem; color:var(--grey2); line-height:1.75; margin-bottom:32px; font-weight:300; }
+
+    /* ── FOOTER ── */
+    footer { background: rgba(255,255,255,.015); border-top:1px solid var(--border); padding:32px 2.5rem; }
+    .footer-inner {
+      max-width:1320px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    }
+    .footer-logo {
+      font-family: var(--display); font-size:.9rem; letter-spacing:.18em; text-decoration:none;
+      background: var(--holo-s); background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: holo-pan 5s linear infinite;
+    }
+    .footer-links { display:flex; gap:28px; list-style:none; }
+    .footer-links a {
+      font-family: var(--body); font-weight: 500; font-size:.6rem;
+      text-transform:uppercase; letter-spacing:.14em;
+      color:var(--grey); text-decoration:none; transition:color .2s;
+    }
+    .footer-links a:hover { color:var(--lgray); }
+    .footer-copy { font-family: var(--body); font-size:.65rem; color:var(--grey); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 500;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,.4);
+      animation: wa-bounce 2.4s ease-in-out infinite;
+    }
+    .wa-float::before {
+      content: ''; position: absolute; inset: -6px; border-radius: 50%;
+      border: 2px solid rgba(37,211,102,.45);
+      animation: wa-pulse 2.4s ease-out infinite;
+    }
+    .wa-float::after {
+      content: ''; position: absolute; inset: -12px; border-radius: 50%;
+      border: 1px solid rgba(37,211,102,.2);
+      animation: wa-pulse 2.4s ease-out .4s infinite;
+    }
+    .wa-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 10px 36px rgba(37,211,102,.6); }
+    @keyframes wa-bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes wa-pulse {
+      0%   { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* ── SMOKE BG ── */
+    #smoke-bg {
+      position: fixed; inset: 0;
+      width: 100%; height: 100%;
+      z-index: -1; pointer-events: none; opacity: .55;
+    }
+
+    /* ── FADE IN ── */
+    .fi { opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+    .fi.v  { opacity:1; transform:translateY(0); }
+    .fi.d1 { transition-delay:.1s; }
+    .fi.d2 { transition-delay:.2s; }
+    .fi.d3 { transition-delay:.3s; }
+    .fi.d4 { transition-delay:.4s; }
+    .fi.d5 { transition-delay:.5s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .sobre-grid { grid-template-columns:1fr; gap:48px; }
+      .sobre-photos { display:none; }
+      .contact-grid { grid-template-columns:1fr; gap:40px; }
+      .products-header { flex-direction:column; align-items:flex-start; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding:0 1.25rem; }
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      .sec { padding:64px 1.25rem; }
+
+      .sec-title { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+      .sec-sub { font-size:.88rem; }
+
+      .hero-s-title { line-height: 1; }
+      .hero-s-desc { font-size:.88rem; margin-bottom:2rem; }
+      .hero-s-eyebrow { margin-bottom:1.2rem; }
+
+      .products-header { padding-bottom:20px; margin-bottom:36px; }
+      .products-cta { flex-direction:column; align-items:flex-start; gap:14px; }
+      .prod-item { padding:18px 0; }
+      .prod-name { font-size:1.4rem; }
+
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+      .g-item:first-child { grid-column:1/-1; grid-row:auto; height:200px; }
+      .g-item:not(:first-child) { height:170px; }
+      .gallery-head { flex-direction:column; align-items:flex-start; gap:14px; }
+
+      .c-link { padding:13px 14px; }
+      .contact-big { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+      .contact-card { padding:32px 24px; }
+      .cc-title { font-size:1.8rem; }
+
+      .footer-inner { flex-direction:column; text-align:center; gap:8px; }
+      .footer-links { display:none; }
+
+      .wa-float { width:52px; height:52px; bottom:20px; right:18px; }
+      .wa-float svg { width:24px; height:24px; }
+    }
+
+    @media (max-width: 480px) {
+      .sec { padding:52px 1rem; }
+
+      .hero-s-content { padding:1rem; }
+      .hero-s-title { font-size: clamp(2.3rem, 12vw, 3rem); line-height:1.02; }
+      .hero-s-desc { font-size:.82rem; max-width:100%; }
+      .hero-s-actions { flex-direction:column; align-items:stretch; gap:.75rem; }
+      .btn-red, .btn-s-outline { justify-content:center; text-align:center; padding:14px 20px; }
+      .hero-s-tags { gap:6px; }
+      .hero-s-tag { font-size:.5rem; padding:4px 10px; }
+
+      .sec-title { font-size: clamp(1.7rem, 9vw, 2.2rem); }
+      .sec-num { font-size:.55rem; }
+
+      .prod-item { gap:10px; }
+      .prod-num { font-size:.55rem; }
+      .prod-name { font-size:1.2rem; }
+      .prod-desc { font-size:.78rem; }
+
+      .gallery-grid { grid-template-columns:1fr; }
+      .g-item:first-child { height:220px; }
+      .g-item:not(:first-child) { height:200px; }
+
+      .contact-big { font-size:2.2rem; margin-bottom:24px; }
+      .contact-sub { font-size:.88rem; }
+      .contact-card { padding:22px 18px; }
+      .cc-title { font-size:1.5rem; }
+      .cc-body { font-size:.83rem; }
+      .c-icon { width:34px; height:34px; border-radius:7px; }
+
+      .pill { font-size:.55rem; padding:5px 12px; }
+
+      footer { padding:24px 1rem; }
+      .footer-copy { font-size:.6rem; }
+
+      .wa-float { width:48px; height:48px; bottom:16px; right:14px; }
+      .wa-float svg { width:22px; height:22px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="smoke-bg" aria-hidden="true"></canvas>
+
+<a href="https://wa.me/5491135658439" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.117 1.523 5.845L.057 23.927a.5.5 0 0 0 .611.612l6.153-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.523-5.17-1.432l-.37-.22-3.828.911.928-3.741-.241-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<div class="orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">NUVEL / EST.</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto" class="nav-cta">Presupuesto →</a></li>
+  </ul>
+  <div class="hamburger" id="hbg" role="button" tabindex="0" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <a href="#sobre"     onclick="closeNav()">Nosotros</a>
+  <a href="#productos" onclick="closeNav()">Productos</a>
+  <a href="#galeria"   onclick="closeNav()">Galería</a>
+  <a href="#contacto"  onclick="closeNav()">Contacto</a>
+</div>
+
+<!-- ══ HERO SHADER ══ -->
+<section class="hero-shader" id="heroSection">
+  <canvas id="shader-canvas"></canvas>
+
+  <div class="hero-s-content fi">
+    <p class="hero-s-eyebrow">Buenos Aires · Argentina · Estampados desde 2024</p>
+    <h1 class="hero-s-title">
+      DISEÑOS QUE<br><span class="color-cycle">DURAN</span>
+    </h1>
+    <p class="hero-s-desc">Personalizamos remeras, camperas, buzos, gorras y tazas con tu diseño. Calidad premium que resiste cada lavado.</p>
+    <div class="hero-s-actions">
+      <a href="#productos" class="btn-red">Ver productos →</a>
+      <a href="#contacto" class="btn-s-outline">Presupuesto gratis</a>
+    </div>
+    <div class="hero-s-tags">
+      <span class="hero-s-tag">Remeras</span>
+      <span class="hero-s-tag">Camperas</span>
+      <span class="hero-s-tag">Buzos</span>
+      <span class="hero-s-tag">Gorras</span>
+      <span class="hero-s-tag">Tazas</span>
+    </div>
+  </div>
+
+  <a href="#sobre" class="hero-s-scroll" aria-label="Scroll">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    Scroll
+  </a>
+</section>
+
+<!-- ══ SOBRE ══ -->
+<section class="sobre sec" id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <p class="sec-num fi">00 — Quiénes somos</p>
+        <h2 class="sec-title fi d1">CREAMOS<br>ESTAMPADOS<br>QUE <span class="color-cycle">DURAN.</span></h2>
+        <p class="sec-sub fi d2">
+          En Nuvel Estampados transformamos tus ideas en productos únicos. Personalizamos remeras, camperas, buzos, gorras y tazas con diseños a tu medida, cuidando cada detalle para que el resultado sea exactamente lo que imaginaste.
+        </p>
+        <div class="pills fi d3">
+          <span class="pill">Remeras</span>
+          <span class="pill">Camperas</span>
+          <span class="pill">Buzos</span>
+          <span class="pill">Gorras</span>
+          <span class="pill">Tazas</span>
+          <span class="pill">Diseño a medida</span>
+          <span class="pill">Envíos nacionales</span>
+          <span class="pill">100% personalizado</span>
+        </div>
+      </div>
+      <div class="sobre-photos">
+        <div class="sphoto fi d1"><img src="assets/instagram/post-5.jpg" alt="Producto" loading="lazy"></div>
+        <div class="sphoto fi d2"><img src="assets/instagram/post-6.jpg" alt="Estampado" loading="lazy"></div>
+        <div class="sphoto fi d3"><img src="assets/instagram/post-7.jpg" alt="Personalizado" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="products sec" id="productos">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <p class="sec-num fi">01 — Qué hacemos</p>
+        <h2 class="sec-title fi d1">PERSONALIZAMOS<br>LO QUE <span class="color-cycle" style="animation-delay:.9s">IMAGINÁS.</span></h2>
+      </div>
+      <p class="sec-sub fi" style="max-width:340px;">Si podés pensarlo, nosotros lo estampamos. Calidad premium en cada pedido.</p>
+    </div>
+
+    <div class="products-list">
+      <div class="prod-item fi">
+        <span class="prod-num">01</span>
+        <div>
+          <div class="prod-name">REMERAS</div>
+          <div class="prod-desc">Estampados vibrantes para hombre, mujer y niños, con colores que no se van.</div>
+        </div>
+      </div>
+      <div class="prod-item fi d1">
+        <span class="prod-num">02</span>
+        <div>
+          <div class="prod-name">CAMPERAS</div>
+          <div class="prod-desc">Tu logo o diseño impreso con acabado premium y resistencia al lavado.</div>
+        </div>
+      </div>
+      <div class="prod-item fi d2">
+        <span class="prod-num">03</span>
+        <div>
+          <div class="prod-name">BUZOS</div>
+          <div class="prod-desc">Cómodos y personalizados para cualquier ocasión o temporada del año.</div>
+        </div>
+      </div>
+      <div class="prod-item fi d3">
+        <span class="prod-num">04</span>
+        <div>
+          <div class="prod-name">GORRAS</div>
+          <div class="prod-desc">Bordadas o estampadas para completar tu look o identidad de marca.</div>
+        </div>
+      </div>
+      <div class="prod-item fi d4">
+        <span class="prod-num">05</span>
+        <div>
+          <div class="prod-name">TAZAS</div>
+          <div class="prod-desc">Personalizadas, ideales como regalo o para tu emprendimiento.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-cta fi">
+      <a href="https://www.instagram.com/nuvelestampados/" target="_blank" rel="noopener" class="btn-holo">
+        <span>Pedí tu presupuesto gratis →</span>
+      </a>
+      <span class="products-note">Escribinos por DM · Respondemos a la brevedad</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ══ -->
+<section class="gallery sec" id="galeria">
+  <div class="container">
+    <div class="gallery-head">
+      <div>
+        <p class="sec-num fi">02 — Nuestro trabajo</p>
+        <h2 class="sec-title fi d1"><span class="holo">GALERÍA.</span></h2>
+      </div>
+      <a href="https://www.instagram.com/nuvelestampados/" target="_blank" rel="noopener" class="btn-o fi d2">
+        Ver en Instagram →
+      </a>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="g-item fi">
+        <img src="assets/instagram/post-5.jpg" alt="Estampado personalizado" loading="lazy">
+        <div class="g-overlay"><span class="g-cap">Estampado personalizado</span></div>
+      </div>
+      <div class="g-item fi d1">
+        <img src="assets/instagram/post-6.jpg" alt="Producto a medida" loading="lazy">
+        <div class="g-overlay"><span class="g-cap">Producto a medida</span></div>
+      </div>
+      <div class="g-item fi d2">
+        <img src="assets/instagram/post-7.jpg" alt="Diseño único" loading="lazy">
+        <div class="g-overlay"><span class="g-cap">Diseño único</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-more fi">
+      <span class="gallery-note">Seguinos para ver más trabajos →</span>
+      <a href="https://www.instagram.com/nuvelestampados/" target="_blank" rel="noopener" class="btn-holo">
+        <span>Ver todos en Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact sec" id="contacto">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="sec-num fi">03 — Contacto</p>
+        <h2 class="contact-big fi d1">
+          ¿QUERÉS<br>ALGO<br><span class="color-cycle" style="animation-delay:1.5s">ESPECIAL?</span>
+        </h2>
+        <p class="contact-sub fi d2">
+          Escribinos y contanos qué tenés en mente. Te respondemos con un presupuesto sin compromiso y asesoramiento personalizado.
+        </p>
+        <div class="fi d3" style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://www.instagram.com/nuvelestampados/" target="_blank" rel="noopener" class="c-link">
+            <div class="c-icon ig">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div class="c-label">
+              <strong>Instagram DM</strong>
+              <span>@nuvelestampados · Presupuesto sin cargo</span>
+            </div>
+          </a>
+          <a href="https://wa.me/5491135658439" target="_blank" rel="noopener" class="c-link">
+            <div class="c-icon" style="background:#25D366;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.117 1.523 5.845L.057 23.927a.5.5 0 0 0 .611.612l6.153-1.464A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.523-5.17-1.432l-.37-.22-3.828.911.928-3.741-.241-.386A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+              </svg>
+            </div>
+            <div class="c-label">
+              <strong>WhatsApp</strong>
+              <span>11 3565-8439 · Respondemos rápido</span>
+            </div>
+          </a>
+          <a href="mailto:nuveldigital@gmail.com" class="c-link">
+            <div class="c-icon" style="background:linear-gradient(135deg,#610304,#8a0406);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="c-label">
+              <strong>Email</strong>
+              <span>nuveldigital@gmail.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card fi d2">
+        <div class="cc-inner">
+          <p class="cc-label">Tu diseño a un DM de distancia</p>
+          <h3 class="cc-title">CONTANOS<br>QUÉ NECESITÁS.</h3>
+          <p class="cc-body">Decinos qué querés estampar, en qué producto y cuántas unidades. Te armamos el presupuesto al instante, sin vueltas.</p>
+          <a href="https://www.instagram.com/nuvelestampados/" target="_blank" rel="noopener" class="btn-holo">
+            <span>Escribinos en Instagram →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">Nuvel Estampados</a>
+    <ul class="footer-links">
+      <li><a href="#sobre">Nosotros</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Nuvel Estampados · Argentina</span>
+  </div>
+</footer>
+
+<script>
+  // ── SMOKE BACKGROUND (WebGL2) ──
+  (function () {
+    const canvas = document.getElementById('smoke-bg');
+    const gl = canvas.getContext('webgl2');
+    if (!gl) return;
+
+    const vertSrc = [
+      '#version 300 es',
+      'precision highp float;',
+      'in vec4 position;',
+      'void main(){ gl_Position = position; }'
+    ].join('\n');
+
+    const fragSrc = [
+      '#version 300 es',
+      'precision highp float;',
+      'out vec4 O;',
+      'uniform float time;',
+      'uniform vec2 resolution;',
+      'uniform vec3 u_color;',
+      '#define FC gl_FragCoord.xy',
+      '#define R resolution',
+      '#define T (time+660.)',
+      'float rnd(vec2 p){p=fract(p*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(rnd(i),rnd(i+vec2(1,0)),u.x),mix(rnd(i+vec2(0,1)),rnd(i+1.),u.x),u.y);}',
+      'float fbm(vec2 p){float t=.0,a=1.;for(int i=0;i<5;i++){t+=a*noise(p);p*=mat2(1.,-1.2,.2,1.2)*2.;a*=.5;}return t;}',
+      'void main(){',
+      '  vec2 uv=(FC-.5*R)/R.y;',
+      '  vec3 col=vec3(1.);',
+      '  uv.x+=.25;',
+      '  uv*=vec2(2.,1.);',
+      '  float n=fbm(uv*.28-vec2(T*.01,0.));',
+      '  n=noise(uv*3.+n*2.);',
+      '  col.r-=fbm(uv+vec2(0.,T*.015)+n);',
+      '  col.g-=fbm(uv*1.003+vec2(0.,T*.015)+n+.003);',
+      '  col.b-=fbm(uv*1.006+vec2(0.,T*.015)+n+.006);',
+      '  col=mix(col,u_color,dot(col,vec3(.21,.71,.07)));',
+      '  col=mix(vec3(.08),col,min(time*.1,1.));',
+      '  col=clamp(col,.08,1.);',
+      '  O=vec4(col,1.);',
+      '}'
+    ].join('\n');
+
+    function mkShader(type, src) {
+      const sh = gl.createShader(type);
+      gl.shaderSource(sh, src); gl.compileShader(sh);
+      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(sh)); gl.deleteShader(sh); return null;
+      }
+      return sh;
+    }
+
+    const prog = gl.createProgram();
+    const vs = mkShader(gl.VERTEX_SHADER, vertSrc);
+    const fs = mkShader(gl.FRAGMENT_SHADER, fragSrc);
+    if (!vs || !fs) return;
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(prog)); return; }
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+    const posLoc = gl.getAttribLocation(prog, 'position');
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const locRes   = gl.getUniformLocation(prog, 'resolution');
+    const locTime  = gl.getUniformLocation(prog, 'time');
+    const locColor = gl.getUniformLocation(prog, 'u_color');
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio, 1.5);
+      canvas.width  = window.innerWidth  * dpr;
+      canvas.height = window.innerHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    function animate(now) {
+      gl.clearColor(0, 0, 0, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(prog);
+      gl.uniform2f(locRes, canvas.width, canvas.height);
+      gl.uniform1f(locTime, now * 1e-3);
+      gl.uniform3fv(locColor, [0.380, 0.012, 0.016]); // brand red #610304
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  })();
+
+  // ── HERO SHADER (WebGL2 cloud nebula) ──
+  (function () {
+    const canvas  = document.getElementById('shader-canvas');
+    const section = document.getElementById('heroSection');
+    const gl      = canvas.getContext('webgl2');
+    if (!gl) return;
+
+    const vertSrc = [
+      '#version 300 es',
+      'precision highp float;',
+      'in vec4 position;',
+      'void main(){ gl_Position = position; }'
+    ].join('\n');
+
+    // Original cloud/nebula shader by Matthias Hurrle (@atzedent)
+    // Colors remapped to brand palette via luminance: #040101 / #610304 / #D8D7D8
+    const fragSrc = [
+      '#version 300 es',
+      'precision highp float;',
+      'out vec4 O;',
+      'uniform vec2 resolution;',
+      'uniform float time;',
+      '#define FC gl_FragCoord.xy',
+      '#define T  time',
+      '#define R  resolution',
+      '#define MN min(R.x,R.y)',
+      'float rnd(vec2 p){p=fract(p*vec2(12.9898,78.233));p+=dot(p,p+34.56);return fract(p.x*p.y);}',
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);}',
+      'float fbm(vec2 p){float t=.0,a=1.;mat2 m=mat2(1.,-.5,.2,1.2);for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}return t;}',
+      'float clouds(vec2 p){float d=1.,t=.0;for(float i=.0;i<3.;i++){float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);t=mix(t,d,a);d=a;p*=2./(i+1.);}return t;}',
+      'void main(void){',
+      '  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);',
+      '  vec3 col=vec3(0);',
+      '  float bg=clouds(vec2(st.x+T*.5,-st.y));',
+      '  uv*=1.-.3*(sin(T*.2)*.5+.5);',
+      '  for(float i=1.;i<12.;i++){',
+      '    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);',
+      '    vec2 p=uv; float d=length(p);',
+      '    col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);',
+      '    float b=noise(i+p+bg*1.731);',
+      '    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));',
+      '    col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);',
+      '  }',
+      '  float lum=dot(clamp(col,0.0,1.0),vec3(0.299,0.587,0.114));',
+      '  vec3 pal0=vec3(0.016,0.004,0.004);',
+      '  vec3 pal1=vec3(0.380,0.012,0.016);',
+      '  vec3 pal2=vec3(0.847,0.843,0.847);',
+      '  float s1=smoothstep(0.0,0.35,lum);',
+      '  float s2=smoothstep(0.35,1.0,lum);',
+      '  O=vec4(mix(mix(pal0,pal1,s1),pal2,s2),1.0);',
+      '}'
+    ].join('\n');
+
+    function mkShader(type, src) {
+      const sh = gl.createShader(type);
+      gl.shaderSource(sh, src); gl.compileShader(sh);
+      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(sh)); gl.deleteShader(sh); return null;
+      }
+      return sh;
+    }
+
+    const prog = gl.createProgram();
+    gl.attachShader(prog, mkShader(gl.VERTEX_SHADER,   vertSrc));
+    gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, fragSrc));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(prog)); return; }
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+    const posLoc = gl.getAttribLocation(prog, 'position');
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const locRes  = gl.getUniformLocation(prog, 'resolution');
+    const locTime = gl.getUniformLocation(prog, 'time');
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio, 1.5);
+      canvas.width  = section.clientWidth  * dpr;
+      canvas.height = section.clientHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    resize();
+    window.addEventListener('resize', resize, false);
+
+    let rafId = null;
+    function animate(now) {
+      gl.clearColor(0,0,0,1); gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(prog);
+      gl.uniform2f(locRes,  canvas.width, canvas.height);
+      gl.uniform1f(locTime, now * 1e-3);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      rafId = requestAnimationFrame(animate);
+    }
+    rafId = requestAnimationFrame(animate);
+
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { if (!rafId) { rafId = requestAnimationFrame(animate); } }
+      else { cancelAnimationFrame(rafId); rafId = null; }
+    }, { threshold: 0 }).observe(section);
+  })();
+
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 40
+      ? 'rgba(4,1,1,.92)'
+      : 'rgba(4,1,1,.75)';
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
+  const hbg = document.getElementById('hbg');
+  const mob = document.getElementById('mobNav');
+  hbg.addEventListener('click', () => mob.classList.toggle('open'));
+  function closeNav() { mob.classList.remove('open'); }
+
+  // ── FADE IN ──
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+  setTimeout(() => {
+    document.querySelectorAll('#heroSection .fi').forEach(el => el.classList.add('v'));
+  }, 80);
+
+  // ── CURSOR (glowing red orb) ──
+  const cursor = document.createElement('div');
+  cursor.style.cssText = `
+    position:fixed;top:0;left:0;width:6px;height:6px;border-radius:50%;
+    pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
+    opacity:0;transition:opacity .2s,width .2s,height .2s;
+    background:#ff1a1a;
+    box-shadow:0 0 6px 2px #cc0000,0 0 18px 6px rgba(180,0,0,.55),0 0 40px 14px rgba(120,0,0,.25);
+  `;
+  document.body.appendChild(cursor);
+
+  const ring = document.createElement('div');
+  ring.style.cssText = `
+    position:fixed;top:0;left:0;width:34px;height:34px;border-radius:50%;
+    pointer-events:none;z-index:9997;transform:translate(-50%,-50%);
+    border:1px solid rgba(200,20,20,.55);
+    box-shadow:0 0 10px 1px rgba(150,0,0,.2),inset 0 0 10px 1px rgba(150,0,0,.08);
+    opacity:0;transition:opacity .2s,width .18s,height .18s,border-color .2s;
+  `;
+  document.body.appendChild(ring);
+
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.opacity = '1'; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    ring.style.opacity = '1';
+  });
+  (function animRing() {
+    rx += (mx - rx) * .09; ry += (my - ry) * .09;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a,button,[role=button],.prod-item,.pill,.g-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '10px'; cursor.style.height = '10px';
+      ring.style.width = '52px'; ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(220,30,30,.8)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '6px'; cursor.style.height = '6px';
+      ring.style.width = '34px'; ring.style.height = '34px';
+      ring.style.borderColor = 'rgba(200,20,20,.55)';
+    });
+  });
+</script>
+
+</body>
+</html>
